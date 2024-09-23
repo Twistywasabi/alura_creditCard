@@ -1,4 +1,4 @@
-public class Product {
+public class Product implements Comparable<Product>{
     private String product;
     private double productValue;
 
@@ -13,4 +13,8 @@ public class Product {
     }
 
 
+    @Override
+    public int compareTo(Product outraCompra) {
+        return Double.valueOf(this.productValue).compareTo(Double.valueOf(outraCompra.productValue));
+    }
 }

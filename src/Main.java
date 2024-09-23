@@ -1,6 +1,7 @@
 import com.sun.security.auth.NTNumericCredential;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Main {
@@ -35,6 +36,7 @@ public class Main {
         }
         System.out.println("**************************************");
         System.out.println("Compras realizadas:");
+        Collections.sort(productList);
         System.out.println(productList.toString());
         System.out.println("**************************************");
         creditCard.setCreditLimit(creditLimitRead);
