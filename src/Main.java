@@ -1,5 +1,6 @@
 import com.sun.security.auth.NTNumericCredential;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -10,6 +11,7 @@ public class Main {
         read.nextLine();
         CreditCard creditCard = new CreditCard(creditLimitRead);
         int menuOptions = 1;
+        ArrayList<Product> productList = new ArrayList<>();
 
         while(menuOptions == 1) {
 
@@ -20,10 +22,9 @@ public class Main {
 
         if (creditLimitRead >= productPriceRead){
             creditLimitRead -= productPriceRead;
+            Product product = new Product(productRead, productPriceRead);
+            productList.add(product);
             System.out.println("Compra realizada com sucesso");
-            System.out.println("Limite cartão: R$" + creditLimitRead);
-            System.out.println("Produto: " + productRead);
-            System.out.println("Preço Produto: " + productPriceRead);
             System.out.println("Digite 0 para sair ou 1 para continuar");
             menuOptions = read.nextInt();
             read.nextLine();
@@ -32,11 +33,13 @@ public class Main {
             menuOptions = 0;
         }
         }
-
-
-
-
-
+        System.out.println("**************************************");
+        System.out.println("Compras realizadas:");
+        System.out.println(productList.toString());
+        System.out.println("**************************************");
+        creditCard.setCreditLimit(creditLimitRead);
+        System.out.println("Saldo cartão: R$ " + creditCard.getCreditLimit());
+        System.out.println("**************************************");
 
     }
 }
