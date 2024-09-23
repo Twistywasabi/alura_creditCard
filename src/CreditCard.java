@@ -5,7 +5,11 @@ public class CreditCard {
         return creditLimit;
     }
 
-    public void setCreditLimit(double creditLimit) {
+    public CreditCard(double creditLimit) {
         this.creditLimit = creditLimit;
+
+
     }
+
+
 }
